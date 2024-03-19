@@ -36,15 +36,14 @@ import { env } from "~/env";
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
-  // callbacks: {
-  //   session: ({ session, user }) => ({
-  //     ...session,
-  //     user: {
-  //       ...session.user,
-  //       id: user.id,
-  //     },
-  //   }),
-  // },
+  callbacks: {
+    signIn({ user }) {
+      return (
+        typeof user?.name == "string" &&
+        ["tonya_", "becomerobotic"].includes(user.name)
+      );
+    },
+  },
   providers: [
     DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
