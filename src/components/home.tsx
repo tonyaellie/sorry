@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { signIn } from "next-auth/react";
-import { LoaderCircle, Router } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 import { api } from "~/trpc/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
