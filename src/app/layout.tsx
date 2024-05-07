@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import { Toaster } from "~/components/ui/sonner";
@@ -24,6 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
+        <Script
+          defer
+          data-domain="sorry.tokia.dev"
+          src="https://ingest.tokia.dev/js/script.js"
+        />
         <TRPCReactProvider>{children}</TRPCReactProvider>
         <Toaster />
       </body>
